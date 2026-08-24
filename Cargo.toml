@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2026 Dawid Papiewski "SpacingBat3" <spacingbat3@gmail.com>
+#
+# SPDX-License-Identifier: LGPL-3.0-or-later
+
+### METADATA ###
+
+[package]
+name    = "kontur"
+version = "0.1.0+continuous"
+edition = "2024"
+
+[features]
+default = ["unicode"]
+ascii   = []
+unicode = ["dep:unicode-width"]
+
+### DEPENDENCIES ###
+
+[dependencies.unicode-width]
+version = "0.2"
+default-features = false
+optional = true
+
+[target.'cfg(unix)'.dependencies.libc]
+version = "0.2"
+
+[target.'cfg(windows)'.dependencies.windows]
+version = "0.62"
+features = ["Win32_System_Console"]
