@@ -15,7 +15,7 @@
 /// Kontur currently approaches a more natural color pallete names,
 /// defaulting to the light colors you might prefer to more frequently
 /// use due to usually better contrast with the terminal background.
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 #[repr(u8)]
 pub enum AnsiColor {
     Black=30,
@@ -76,6 +76,7 @@ impl AnsiColor {
 /// 4-bit pallete.
 ///
 /// Color detection API is TBD.
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Color {
     /// ANSI named color, most extensively supported by terminals
     FgPallete(AnsiColor),

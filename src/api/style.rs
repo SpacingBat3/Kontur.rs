@@ -37,6 +37,7 @@ fn detect_allow_styles()->bool {
 }
 
 /// A type describing atomic ANSI sequence escape for styling text.
+#[derive(PartialEq, Eq)]
 pub enum Style {
     /// Color definition
     Color(Color),

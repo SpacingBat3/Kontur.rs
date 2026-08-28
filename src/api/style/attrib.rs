@@ -7,7 +7,7 @@
 //! 
 //! 
 
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 #[repr(u8)]
 /// Represents ANSI attributes known by this crate.
 pub enum Attribute {
