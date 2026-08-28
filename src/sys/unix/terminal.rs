@@ -30,7 +30,8 @@ impl AsRawFd for NeverTerminal {
 /// 
 /// Key note on this implementation is that env vars `COLUMNS` and
 /// `LINES` are preffered over system call. This allows for eventual
-/// output format manipulation by users, as `fd` won't be then required.
+/// output format manipulation by users and possible performance
+/// benefits.
 ///
 /// `None` value denotes that implementation could not gather info on
 /// valid columns/lines or that `fd` was not a terminal. It then should
@@ -38,16 +39,16 @@ impl AsRawFd for NeverTerminal {
 /// relying on the value.
 ///
 pub fn terminal_get_size<T:AsRawFd+IsTerminal>(fd:Option<&T>)->Option<(u16_nz,u16_nz)> {
+    if fd.is_some_and(|t| !t.is_terminal()) { return None; }
     let (mut cols,mut lines)=(0,0);
+    // env
     if let Ok(Ok(cols_env)) = var("COLUMNS").map(|cols| cols.parse::<u16>()) {
-        // env
         cols=cols_env;
     }
     if let Ok(Ok(lines_env)) = var("LINES").map(|cols| cols.parse::<u16>()) {
-        // env
         lines=lines_env;
     }
-    if  (cols == 0 || lines == 0) && (fd.is_some_and(is_terminal)
+    if (cols == 0 || lines == 0) && (fd.is_some()
             || stdout().is_terminal()) {
         // ioctl
         let mut stdout_lock = None;

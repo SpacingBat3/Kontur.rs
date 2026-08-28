@@ -41,7 +41,7 @@ impl AsRawHandle for NeverTerminal {
 /// implementations relying on the value.
 ///
 pub fn terminal_get_size<T:AsRawHandle+IsTerminal>(con:Option<&T>)->Option<(u16_nz,u16_nz)> {
-    if con.is_some_and(is_terminal) || stdout().is_terminal() {
+    if con.is_some_and(is_terminal) || (con.is_none() && stdout().is_terminal()) {
         // Win32 API
         let mut stdout_lock = None;
         let con = con.map_or_else(|| {
