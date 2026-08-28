@@ -17,9 +17,9 @@ mod api {
 }
 pub use api::*;
 
-// Macros
-pub mod macros {
-    pub mod style;
+/// Macros
+mod macros {
+    pub(crate) mod style;
 }
 
 /// Utilities unrelated to API
