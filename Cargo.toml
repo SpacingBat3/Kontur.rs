@@ -6,7 +6,7 @@
 
 [package]
 name    = "kontur"
-version = "0.1.0+continuous"
+version = "0.1.0"
 edition = "2024"
 
 [features]
