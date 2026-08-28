@@ -8,7 +8,7 @@
 // Prelude recommendations
 pub mod prelude;
 
-// Library public API
+/// Library public API
 mod api {
     pub mod terminal;
     pub mod fmt;
@@ -24,5 +24,5 @@ pub mod macros {
 
 #[cfg_attr(unix,    path = "sys/unix.rs"   )]
 #[cfg_attr(windows, path = "sys/windows.rs")]
-// Platform-dependant implementations
+/// Platform-dependant implementations
 pub(crate) mod sys;
