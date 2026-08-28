@@ -12,12 +12,29 @@
 //! drastically change.
 
 use std::hint::unreachable_unchecked;
+use crate::util::types::MaybeBool;
 
 pub(crate) mod attrib;
 pub(crate) mod color;
 
 pub use attrib::*;
 pub use color::*;
+
+pub(crate) static ALLOW_STYLES:MaybeBool = MaybeBool::new();
+
+fn detect_allow_styles()->bool {
+    use std::{env::var,io::{stdout,stderr}};
+    use crate::terminal::IsTerminal;
+    stdout().is_terminal() && stderr().is_terminal()
+        && var("NO_COLOR")
+            .ok()
+            .is_none_or(|no_color| match no_color
+                    .to_ascii_lowercase()
+                    .as_str() {
+                "true"|"yes"|"1" => false,
+                _ => true
+            })
+}
 
 /// A type describing atomic ANSI sequence escape for styling text.
 pub enum Style {
@@ -84,7 +101,9 @@ impl Style {
     /// `red.apply(format!("{}bar",blue.apply("foo")))` (conceptually)
     /// will result in string with blue `foo` and red `bar`.
     pub fn apply<T:AsRef<str>>(&self,text:T)->String {
-        // FIXME: detect color support on use
+        if !ALLOW_STYLES.get_or_init(detect_allow_styles) {
+            return text.as_ref().to_string();
+        }
         let [start,end] = self.to_string_record();
         format!("\x1b[{start}m{}\x1b[{end}m",text.as_ref().replace(
             format!("\x1b[{start}m").as_str(),
@@ -98,8 +117,11 @@ impl Style {
     /// might arbitarly disable style rendering from a given point.
     ///
     pub fn barrier<T:AsRef<str>>(&self,text:T,pos:usize)->String {
-        let [_,end] = self.to_string_record();
         let mut text = text.as_ref().to_string();
+        if !ALLOW_STYLES.get_or_init(detect_allow_styles) {
+            return text;
+        }
+        let [_,end] = self.to_string_record();
         text.insert_str(pos, format!("\x1b{}m",end).as_str());
         text
     }

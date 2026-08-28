@@ -22,7 +22,12 @@ pub mod macros {
     pub mod style;
 }
 
+/// Utilities unrelated to API
+mod util {
+   pub(crate) mod types; 
+}
+
+/// Platform-dependant implementations
 #[cfg_attr(unix,    path = "sys/unix.rs"   )]
 #[cfg_attr(windows, path = "sys/windows.rs")]
-/// Platform-dependant implementations
 pub(crate) mod sys;
