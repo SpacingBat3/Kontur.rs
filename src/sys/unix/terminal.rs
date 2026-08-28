@@ -13,6 +13,10 @@ use std::{
 use libc::{c_int, ioctl, TIOCGWINSZ, winsize};
 use crate::terminal::*;
 
+/// Trait to represent raw terminal representation requirements.
+pub trait TerminalRaw: AsRawFd {}
+impl<T: AsRawFd> TerminalRaw for T {}
+
 impl AsRawFd for NeverTerminal {
     fn as_raw_fd(&self) -> std::os::unix::prelude::RawFd {
         unimplemented!()

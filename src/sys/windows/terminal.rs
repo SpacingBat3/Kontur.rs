@@ -20,6 +20,10 @@ use windows::Win32::{
 
 use crate::terminal::*;
 
+/// Trait to represent raw terminal representation requirements.
+pub trait TerminalRaw: AsRawHandle {}
+impl<T: AsRawHandle> TerminalRaw for T {}
+
 impl AsRawHandle for NeverTerminal {
     fn as_raw_handle(&self) -> std::os::windows::prelude::RawHandle {
         unimplemented!()
