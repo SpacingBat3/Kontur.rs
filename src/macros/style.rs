@@ -12,20 +12,26 @@
 /// --------------------------------------------------------------------
 ///
 /// ```
+/// use kontur::{prelude::*,style::Style};
+/// 
 /// // Like `Style::Attribute(Attribute::Bold)`
-/// style!(attribute(Bold))
+/// const BOLD:Style = style!(attribute(Bold));
 /// // For colors:
-/// style!(color(Red))
+/// const RED:Style = style!(color(Red));
 /// // Or if you want to be explicit:
-/// style!(fg::color(Red))
+/// assert!(RED == style!(fg::color(Red)));
+/// 
 /// // If you want to set blue background color instead:
-/// style!(bg::color(Blue))
+/// const BLU:Style = style!(bg::color(Blue));
+/// 
 /// // Also red, but via RGB, not ANSI pallete
-/// style!(rgb(255,0,0))
-/// style!(hex(0xff0000))
+/// const RGB_RED:Style = style!(rgb(255,0,0));
+/// // …or as HEX (#ff0000) convention
+/// assert!(RGB_RED == style!(hex(0xff0000)));
+/// 
 /// // Also `bg`:
-/// style!(bg::rgb(0,0,255))
-/// style!(bg::hex(0x0000ff))
+/// const RGB_BLU:Style = style!(bg::rgb(0,0,255));
+/// assert!(RGB_BLU == style!(bg::hex(0x0000ff)));
 /// ```
 ///
 #[macro_export]
