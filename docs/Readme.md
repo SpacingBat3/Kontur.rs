@@ -68,17 +68,20 @@ the Free Software Foundation, either version 3 of the License, or
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU Lesser General Public License for more details.
+[GNU Lesser General Public License] for more details.
 
-You should have received a copy of the GNU Lesser General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+You should have received a copy of the [GNU Lesser General Public License]
+and a copy of the [GNU General Public License] along with this program.
+If not, see <https://www.gnu.org/licenses/>.
 
 <div align=right>
 
-[![LGPL 3.0 logo]][GNU Lesser General Public License]
+[![GPL 3.0 logo]][GNU General Public License] [![LGPL 3.0 logo]][GNU Lesser General Public License]
 
 </div>
 
-[SpacingBat3]: https://github.com/SpacingBat3
+[SpacingBat3]:                       https://github.com/SpacingBat3
+[GNU General Public License]:        https://www.gnu.org/licenses/gpl-3.0.en.html
 [GNU Lesser General Public License]: https://www.gnu.org/licenses/lgpl-3.0.en.html
-[LGPL 3.0 logo]: https://www.gnu.org/graphics/lgplv3-147x51.png
+[GPL 3.0 logo]:                      https://www.gnu.org/graphics/gplv3-127x51.png
+[LGPL 3.0 logo]:                     https://www.gnu.org/graphics/lgplv3-147x51.png
