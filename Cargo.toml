@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2026 Dawid Papiewski "SpacingBat3" <spacingbat3@gmail.com>
 #
-# SPDX-License-Identifier: LGPL-3.0-or-later OR GPL-3.0-or-later
+# SPDX-License-Identifier: MPL-2.0
 
 ### METADATA ###
 
@@ -8,7 +8,7 @@
 name        = "kontur"
 version     = "0.1.2"
 description = "A terminal manipulation library for CLI applications."
-license     = "LGPL-3.0-or-later OR GPL-3.0-or-later"
+license     = "MPL-2.0"
 homepage    = "https://github.com/SpacingBat3/Kontur.rs#readme"
 repository  = "https://github.com/SpacingBat3/Kontur.rs"
 categories  = ["command-line-interface", "text-processing", "value-formatting"]

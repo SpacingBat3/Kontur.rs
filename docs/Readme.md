@@ -1,7 +1,7 @@
 <!--
 SPDX-FileCopyrightText: 2026 Dawid Papiewski "SpacingBat3" <spacingbat3@gmail.com>
 
-SPDX-License-Identifier: LGPL-3.0-or-later OR GPL-3.0-or-later
+SPDX-License-Identifier: MPL-2.0
 -->
 
 <div align=center>
@@ -60,28 +60,10 @@ License
 
 © 2026 Dawid Papiewski "[SpacingBat3]" <spacingbat3@gmail.com>
 
-This program is free software: you can redistribute it and/or modify it
-under the terms of the [GNU Lesser General Public License] as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+This project is subject to the terms of the
+[Mozilla Public License, v. 2.0][MPL-2.0]. If a copy of the MPL was not
+distributed with this file, You can obtain one at
+<https://mozilla.org/MPL/2.0/>.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-[GNU Lesser General Public License] for more details.
-
-You should have received a copy of the [GNU Lesser General Public License]
-and a copy of the [GNU General Public License] along with this program.
-If not, see <https://www.gnu.org/licenses/>.
-
-<div align=right>
-
-[![GPL 3.0 logo]][GNU General Public License] [![LGPL 3.0 logo]][GNU Lesser General Public License]
-
-</div>
-
-[SpacingBat3]:                       https://github.com/SpacingBat3
-[GNU General Public License]:        https://www.gnu.org/licenses/gpl-3.0.en.html
-[GNU Lesser General Public License]: https://www.gnu.org/licenses/lgpl-3.0.en.html
-[GPL 3.0 logo]:                      https://www.gnu.org/graphics/gplv3-127x51.png
-[LGPL 3.0 logo]:                     https://www.gnu.org/graphics/lgplv3-147x51.png
+[SpacingBat3]: https://github.com/SpacingBat3 "GitHub Profile"
+[MPL-2.0]:     https://mozilla.org/MPL/2.0/   "Identified by SPDX: MPL-2.0"
