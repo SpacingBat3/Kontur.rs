@@ -16,9 +16,9 @@ keywords    = ["ansi","color","wrap","line","argv"]
 readme      = "docs/Readme.md"
 edition     = "2024"
 exclude     = [
-    ".gitignore", # dev-only
     "LICENSE.*",  # GitHub representation, preffer REUSE
     "docs/**",    # keep docs minimal
+    ".*",         # no hidden files/dirs
 ]
 
 [features]
