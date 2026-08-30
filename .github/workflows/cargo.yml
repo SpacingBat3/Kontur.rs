@@ -67,4 +67,5 @@ jobs:
       - name: Publish crate as artifact
         uses: actions/upload-artifact@v7
         with:
-          path: target/package/*.crate
+          path:    target/package/*.crate
+          archive: false
