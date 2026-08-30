@@ -54,7 +54,7 @@ jobs:
             ~/.cargo/registry/cache/
             ~/.cargo/git/db/
             target/
-          key: ${{ matrix.os }}-cargo-${{ hashFiles('Cargo.lock') }}
+          key: ${{ matrix.runner }}-cargo-${{ hashFiles('Cargo.lock') }}
       - name: Fetch dependencies
         if:   steps.cargo-cache.outputs.cache-hit != 'true'
         run:  cargo fetch --locked
