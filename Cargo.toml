@@ -6,7 +6,7 @@
 
 [package]
 name        = "kontur"
-version     = "0.1.2"
+version     = "0.2.0"
 description = "A terminal manipulation library for CLI applications."
 license     = "MPL-2.0"
 homepage    = "https://github.com/SpacingBat3/Kontur.rs#readme"
