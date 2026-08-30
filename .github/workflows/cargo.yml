@@ -14,14 +14,32 @@ jobs:
   build:
     strategy:
       matrix:
-        runner:
-          - ubuntu-latest
-          - ubuntu-26.04-arm
-          - windows-latest
-          - windows-11-arm
-          - macos-26
-          - macos-26-intel
-    name:    Build on ${{ runner.os }} ${{ runner.arch }}
+        include:
+          - runner: ubuntu-latest
+            os:     Linux
+            arch:   Intel/AMD
+
+          - runner: ubuntu-26.04-arm
+            os:     Linux
+            arch:   ARM
+
+          - runner: windows-latest
+            os:     Windows
+            arch:   Intel/AMD
+
+          - runner: windows-11-arm
+            os:     Windows
+            arch:   ARM
+
+          - runner: macos-26-intel
+            os:     macOS
+            arch:   Intel/AMD
+
+          - runner: macos-26
+            os:     macOS
+            arch:   ARM
+
+    name:    Build on ${{ matrix.os }} ${{ matrix.arch }}
     runs-on: ${{ matrix.runner }}
     steps:
       - name: Checkout ${{ github.ref_name }}
