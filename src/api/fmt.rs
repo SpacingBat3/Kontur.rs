@@ -6,7 +6,7 @@
 //! ====================================================================
 //!
 //! This provides methods to manipulate with text representation, like
-//! text wrapping.
+//! text wrapping or marking text with a hyperlink.
 
 use crate::terminal::{
     NeverTerminal,
@@ -88,6 +88,9 @@ pub trait TtyFormat:AsRef<str> {
             text.to_string()
         }
     }
+    /// Auto-wrap text to boundaries
+    /// ================================================================
+    ///
     /// Wraps the text to `cols`, placing words after `ind` spaces and
     /// by replacing whitespaces between words with space. It does not
     /// split words.
@@ -133,6 +136,20 @@ pub trait TtyFormat:AsRef<str> {
             // Fallback
             text.to_string()
         }
+    }
+    /// Format as `OSC-8` hyperlink
+    /// ================================================================
+    /// 
+    /// Formats given text as hyperlink in terminals, with `href`
+    /// pointing to the link target. DOES NOT validate the correctness
+    /// of the link (leaves validation to the terminal).
+    /// 
+    /// Note: API is still subject to changes.
+    #[inline] fn href<T:AsRef<str>>(&self,href:T,id:Option<&str>)->String {
+        let href  = href.as_ref();
+        let label = self.as_ref();
+        let id    = id.unwrap_or_default();
+        format!("\x1b]8;{id};{href}\x07{label}\x1b]8;;\x07")
     }
 }
 
