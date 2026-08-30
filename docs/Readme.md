@@ -21,8 +21,8 @@ Description
 Kontur aims to fully implement a terminal manipulation for apps that
 don't need entire stack of ANSI sequences for cursor positioning,
 alternative screen buffers or component drawing. It also implements
-its abstractions to play nice with fresh `std` related traits like
-`IsTerminal`.
+its abstractions to build upon and extend `std` related traits like
+`IsTerminal` than to do its own thing from scratch.
 
 ### Motivation
 
@@ -41,8 +41,8 @@ designing your software.
 
 *Kontur* is a Polish word, that means *outline*. It tries to represent
 the word *line* in *command-line interface* phrase, to signify that
-manipulation focuses not around whole terminal window, but just the
-current line of it.
+manipulation focuses not around whole terminal window, as seen in many
+TUI frameworks, but rather just the current line of it.
 
 `[feature]` flags
 ------------------------------------------------------------------------
