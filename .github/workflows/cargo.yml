@@ -119,6 +119,6 @@ jobs:
         uses: rust-lang/crates-io-auth-action@v1
         id:   cargo-auth
       - name: Publish crate to crates.io
-        run:  cargo publish --frozen
+        run:  cargo publish --locked
         env:
           CARGO_REGISTRY_TOKEN: ${{ steps.cargo-auth.outputs.token }}
